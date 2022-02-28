@@ -7,7 +7,7 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 4px 0;
-    background-color: rgb(216, 242, 252);
+    background-color: rgb(230, 246, 252);
  }
  h1{text-align:center;
     text-shadow: 2px 2px #000000;
@@ -26,7 +26,19 @@ body {
 .app-container{
     width: 600px;
     height: 600px;
-    box-shadow: 2px 2px #000000;
+    box-shadow: 2px 2px 5px#696868;
 background-color: white;
-border: 2px 8px gray;
+border: none;
+margin-left: 40px;
+margin-top: 10px;
+}
+button{
+    width: auto;
+    height: auto;
+    padding:10px;
+    background-color: rgb(179, 225, 240);
+    box-shadow: 2px 2px 4px #4b4a4a;
+    border: none;
+font-size: larger;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
