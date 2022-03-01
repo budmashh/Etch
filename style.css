@@ -26,7 +26,7 @@ body {
 .app-container{
     width: 600px;
     height: 600px;
-    box-shadow: 2px 2px 5px#696868;
+    box-shadow: 10px 10px 5px#696868;
 background-color: white;
 border: none;
 margin-left: 40px;
@@ -37,7 +37,7 @@ button{
     height: auto;
     padding:10px;
     background-color: rgb(179, 225, 240);
-    box-shadow: 2px 2px 4px #4b4a4a;
+    box-shadow: 5px 5px 4px #4b4a4a;
     border: none;
 font-size: larger;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
