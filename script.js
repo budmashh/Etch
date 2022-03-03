@@ -3,12 +3,12 @@ const clearButton = document.querySelector('.clear');
  const eraserButton = document.querySelector('.eraser');
  const rgbButton = document.querySelector('.rgb-color');
  const greyButton = document.querySelector('.grey');
- const userColorButton = document.querySelector('.user-color');
+ const pickButton = document.querySelector('.pick-color');
 
  let rgb = false;
  let eraser = false;
  let grey = false;
- let userColor = false;
+ let pick = false;
 
  function makeDivs(gridNum = 16){
      let totalDivs = gridNum * gridNum;
@@ -27,6 +27,64 @@ const clearButton = document.querySelector('.clear');
  makeDivs();
 
  function changeBackground(e){
-     e.target.style.backgroundColor = 'green';
-    return
- }
+    if(rgbColor) {
+        e.target.style.backgroundColor = 'pink';
+        return;
+}
+    if(grey) {
+        e.target.style.backgroundColor = 'red';
+    return;
+}   if(eraser) {
+    e.target.style.backgroundColor = 'yellow';
+    return;
+    }
+    if(pick){
+        e.target.style.backgroundColor = userColor;
+    }
+}
+
+ //button click and active functionality
+
+ rgbButton.addEventListener('click', () =>{
+     rgbColor = true;
+     eraser = false;
+     grey = false;
+      pick = false;
+ })
+ eraserButton.addEventListener('click', () =>{
+    rgbColor = false;
+     eraser = true;
+     grey = false;
+     pick = false;
+})
+greyButton.addEventListener('click', () =>{
+    rgbColor = false;
+     eraser = false;
+     grey = true;
+     pick = false;}
+)
+
+pickButton.addEventListener('click',  getColor(), colorBox())
+
+let userColor='';
+
+function colorBox(){
+    let colorInput = document.createElement('input');
+    colorInput.setAttribute('type', 'color');
+    pickButton.appendChild(colorInput);
+    colorInput.addEventListener('input', () => {
+        userColor = colorInput.value;
+        console.log(userColor)
+        pick = true;
+        grey = false;
+        rgbColor=false;
+        eraser = false;
+     })
+}
+
+function getColor(){
+    pick = true;
+    grey = false;
+    rgbColor = false;
+    eraser = false;
+}
