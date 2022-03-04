@@ -16,7 +16,7 @@ const clearButton = document.querySelector('.clear');
      appContainer.style.gridTemplateColumns =`repeat(${gridNum}, auto)`;
      appContainer.style.gridTemplateRows =`repeat(${gridNum}, auto)`;
 
-     for (let i=1; i<totalDivs; i++){
+     for (let i=1; i<=totalDivs; i++){
          let div = document.createElement('div');
          //div.style.backgroundColor='pink'
          //div.style.borderStyle = 'dashed';
