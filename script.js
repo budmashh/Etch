@@ -4,6 +4,7 @@ const clearButton = document.querySelector('.clear');
  const rgbButton = document.querySelector('.rgb-color');
  const greyButton = document.querySelector('.grey');
  const pickButton = document.querySelector('.pick-color');
+ const gridSizeButton = document.querySelector('.grid-size');
 
  let rgb = false;
  let eraser = false;
@@ -28,14 +29,19 @@ const clearButton = document.querySelector('.clear');
 
  function changeBackground(e){
     if(rgbColor) {
-        e.target.style.backgroundColor = 'pink';
+        let red =  Math.floor(Math.random() *256);
+        let green =  Math.floor(Math.random() *256);
+        let blue =  Math.floor(Math.random() *256);
+        let color = `rgb(${red}, ${green}, ${blue})`;
+
+        e.target.style.backgroundColor = color;
         return;
 }
     if(grey) {
         e.target.style.backgroundColor = 'red';
     return;
 }   if(eraser) {
-    e.target.style.backgroundColor = 'yellow';
+    e.target.style.backgroundColor = 'white';
     return;
     }
     if(pick){
@@ -88,3 +94,37 @@ function getColor(){
     rgbColor = false;
     eraser = false;
 }
+
+ clearButton.addEventListener('click', () => {
+
+    let eraseDivs = appContainer.querySelectorAll('div');
+
+    eraseDivs.forEach(element => {
+        element.style.backgroundColor='white';
+    })
+
+ });
+
+ gridSizeButton.addEventListener('click', () =>{
+        let userGridNum = prompt('Number of squares per side? \n -- Maximum is 100 --');
+        userGridNum = Number(userGridNum);
+        if(userGridNum >100){
+            return userGridNum = 100;
+        }
+        if(userGridNum === 0 || userGridNum === NaN){
+            return;
+        }else{
+            clearGridDivs();
+            makeDivs(userGridNum);
+        }
+ }
+ )
+ function clearGridDivs(){
+     let appContainerDivs = appContainer.querySelectorAll('div');
+         //make the array like object into proper array
+     appContainerDivs = Array.from(appContainerDivs);
+     //itterate through the divs and delete each one
+     appContainerDivs.forEach(div =>{
+         appContainer.removeChild(div);
+     })
+ }
