@@ -18,6 +18,7 @@ const clearButton = document.querySelector('.clear');
 
      for (let i=1; i<=totalDivs; i++){
          let div = document.createElement('div');
+         div.style.opacity = '1.1';
          //div.style.backgroundColor='pink'
          //div.style.borderStyle = 'dashed';
          div.addEventListener('mouseover', changeBackground)
@@ -38,8 +39,9 @@ const clearButton = document.querySelector('.clear');
         return;
 }
     if(grey) {
-        e.target.style.backgroundColor = 'red';
-    return;
+        //e.target.style.backgroundColor = 'red';
+        greyShader(e);
+        return;
 }   if(eraser) {
     e.target.style.backgroundColor = 'white';
     return;
@@ -48,6 +50,18 @@ const clearButton = document.querySelector('.clear');
         e.target.style.backgroundColor = userColor;
     }
 }
+
+function greyShader(e){
+    e.target.style.backgroundColor = 'black';
+    let currOpacity = e.target.style.opacity;
+    if (currOpacity >1){
+        e.target.style.opacity = 0.2;
+    }
+    else if (currOpacity <1){
+        e.target.style.opacity = (parseFloat(currOpacity) + 0.2);
+    }
+}
+
 
  //button click and active functionality
 
